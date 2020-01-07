@@ -24,7 +24,7 @@ install:
       REPO_URL=http://repo.mysql.com/apt/ubuntu/pool/mysql-5.7/m/mysql-community
       TMP_DIR=$(mktemp -d)
       pushd -- "${TMP_DIR}"
-      for pkg in mysql-community-client mysql-client mysql-community-server mysql-server; do
+      for pkg in mysql-common mysql-community-client mysql-client mysql-community-server mysql-server; do
           curl -fsSL -O "$REPO_URL/${pkg}_${MYSQL_VERSION}-1ubuntu${OS_RELEASE}_${OS_ARCH}.deb"
           sudo dpkg -i "${pkg}_${MYSQL_VERSION}-1ubuntu${OS_RELEASE}_${OS_ARCH}.deb"
       done
