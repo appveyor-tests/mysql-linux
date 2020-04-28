@@ -6,6 +6,7 @@ init:
 test_script:
   - sh: |
       # test MySQL
+      MYSQL_ROOT_PASSWORD="Password12!"
       sudo systemctl start mysql
       mysql -uroot -p${MYSQL_ROOT_PASSWORD} -e 'USE mysql; SELECT Host,User FROM `user`;'
       sudo systemctl disable mysql
